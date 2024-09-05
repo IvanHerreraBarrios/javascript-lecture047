@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript basics</title>
+</head>
+
+<body>
+    <h1>Javascript basics</h1>
+    <ul>
+        <li>Spring</li>
+        <li>Summer</li>
+        <li>Fall</li>
+        <li>Winter</li>
+    </ul>
+    <script>
+        const guy = {
+            name: "",
+            lastName: "",
+            age:9
+        }
+
+        const handler = {
+            set(obj, prop, value) {
+                if(Object.keys(obj).indexOf(prop) === -1){
+                    return console.error("This property doesnt exist", prop)
+                }
+
+                /*
+                if  (prop === "name" || prop === "lastName") && 
+                    !(regular expresion.test(value)) {
+                    return console.error("ONly letters and white spaces")
+                }*/
+                obj[prop] = value
+            }
+        }
+
+        const jon = new Proxy(guy, handler)
+        jon.name = "Jon"
+        jon.lastName = "Mircha"
+        jon.age = 9
+        jon.twiter = "hkjkj@gbmb"
+        console.log(jon)
+        console.log(guy)
+    </script>
+</body>
+
+</html>
